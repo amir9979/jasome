@@ -23,37 +23,13 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build -d
-    - name: Build with Gradle
-      run: ./gradlew jar -d
-    
+      run: ./gradlew build 
+
     - name: Build with Gradle
       run: ./gradlew fatJar
     
-    - name: ls files
-      run: ls -R
-    
-    - name: ls files m2
-      run: ls -R /home/runner/.gradle
-    
     - name: Grant execute permission for jasome
       run: chmod +x ./jasome
-
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        # Artifact name
-        name: script
-        # A file, directory or wildcard pattern that describes what to upload
-        path: ./build/scripts/jasome
-
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        # Artifact name
-        name: jar
-        # A file, directory or wildcard pattern that describes what to upload
-        path: ./build/libs/jasome.jar
 
     - name: execute
       run: ./jasome ./src
