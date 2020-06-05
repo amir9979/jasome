@@ -31,7 +31,7 @@ jobs:
       run: ls -R
     
     - name: ls files m2
-      run: ls -R /home/runner/.m2/repository
+      run: ls -R /home/runner/.gradle
     
     - name: Grant execute permission for jasome
       run: chmod +x ./jasome
