@@ -37,7 +37,10 @@ jobs:
       with:
         repository: apache/xmlgraphics-fop
         path: ./my-tools
-        run: git checkout fop-2_1
+        
+    - name: Checkout tools repo
+      run: git checkout fop-2_1
+      working-directory: ./my-tools
 
     - name: execute
       run: ./jasome ./my-tools -o output.xml
