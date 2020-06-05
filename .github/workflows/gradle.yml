@@ -30,6 +30,10 @@ jobs:
     - name: ls files
       run: ls -R
     
+    - name: ls files m2
+      run: ls -R
+      working-directory: ~/.m2
+    
     - name: Grant execute permission for jasome
       run: chmod +x ./jasome
 
