@@ -32,7 +32,7 @@ jobs:
     
     - name: ls files m2
       run: ls -R
-      working-directory: /home
+      working-directory: /home/runner/.m2/
     
     - name: Grant execute permission for jasome
       run: chmod +x ./jasome
