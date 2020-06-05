@@ -33,5 +33,21 @@ jobs:
     - name: Grant execute permission for jasome
       run: chmod +x ./build/scripts/jasome
 
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        # Artifact name
+        name: script
+        # A file, directory or wildcard pattern that describes what to upload
+        path: ./build/scripts/jasome
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        # Artifact name
+        name: jar
+        # A file, directory or wildcard pattern that describes what to upload
+        path: ./build/libs/jasome.jar
+
     - name: execute
       run: ./build/scripts/jasome ./src
