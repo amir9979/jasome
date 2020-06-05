@@ -50,4 +50,4 @@ jobs:
         path: ./build/libs/jasome.jar
 
     - name: execute
-      run: ./build/scripts/jasome ./src
+      run: ./jasome ./src
