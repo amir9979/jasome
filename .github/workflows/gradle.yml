@@ -28,6 +28,14 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew fatJar
     
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        # Artifact name
+        name: jar
+        # A file, directory or wildcard pattern that describes what to upload
+        path: ./build/libs/jasome.jar
+    
     - name: Grant execute permission for jasome
       run: chmod +x ./jasome
 
@@ -44,8 +52,8 @@ jobs:
       run: git checkout fop-2_1
       working-directory: ./my-tools
 
-    - name: execute
-      run: ./jasome ./my-tools -o output.xml
+    #- name: execute
+   #   run: ./jasome ./my-tools -o output.xml
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
