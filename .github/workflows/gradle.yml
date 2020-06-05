@@ -32,4 +32,13 @@ jobs:
       run: chmod +x ./jasome
 
     - name: execute
-      run: ./jasome ./src
+      run: ./jasome ./src -o output.xml
+    
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        # Artifact name
+        name: output.xml
+        # A file, directory or wildcard pattern that describes what to upload
+        path: output.xml
+
