@@ -38,7 +38,7 @@ jobs:
         repository: apache/xmlgraphics-fop
         path: ./my-tools
         fetch-depth: 0
-        ref: tmp
+        ref: fop-2_1
         
     - name: Checkout tools repo
       run: git checkout fop-2_1
