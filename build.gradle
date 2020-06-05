@@ -51,3 +51,13 @@ buildscript {
         classpath 'com.github.rholder:gradle-one-jar:1.0.4'
     }
 }
+
+
+task fatJar(type: Jar) {
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    with jar
+}
