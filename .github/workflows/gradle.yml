@@ -29,3 +29,9 @@ jobs:
     
     - name: ls files
       run: ls -R
+    
+    - name: Grant execute permission for jasome
+      run: chmod +x ./build/scripts/jasome
+
+    - name: execute
+      run: ./build/scripts/jasome ./src
