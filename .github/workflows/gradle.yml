@@ -31,7 +31,7 @@ jobs:
       run: ls -R
     
     - name: Grant execute permission for jasome
-      run: chmod +x ./build/scripts/jasome
+      run: chmod +x ./jasome
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
