@@ -31,8 +31,16 @@ jobs:
     - name: Grant execute permission for jasome
       run: chmod +x ./jasome
 
+
+    - name: Checkout tools repo
+      uses: actions/checkout@v2
+      with:
+        repository: apache/xmlgraphics-fop
+        path: ./my-tools
+        ref: fop-2_1
+
     - name: execute
-      run: ./jasome ./src -o output.xml
+      run: ./jasome ./my-tools -o output.xml
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
