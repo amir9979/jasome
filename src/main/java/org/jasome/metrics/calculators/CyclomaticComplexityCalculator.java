@@ -23,7 +23,7 @@ public class CyclomaticComplexityCalculator implements Calculator<Method> {
         List<ForStmt> forStmts = method.getSource().getNodesByType(ForStmt.class);
         List<WhileStmt> whileStmts = method.getSource().getNodesByType(WhileStmt.class);
         List<DoStmt> doStmts = method.getSource().getNodesByType(DoStmt.class);
-        List<SwitchEntryStmt> catchStmts = method.getSource().getNodesByType(SwitchEntryStmt.class).stream().
+        List<SwitchEntry> catchStmts = method.getSource().getNodesByType(SwitchEntry.class).stream().
                 filter(s -> s.getLabel().isPresent()) //Don't include "default" statements, only labeled case statements
                 .collect(Collectors.toList());
         List<ConditionalExpr> ternaryExprs = method.getSource().getNodesByType(ConditionalExpr.class);

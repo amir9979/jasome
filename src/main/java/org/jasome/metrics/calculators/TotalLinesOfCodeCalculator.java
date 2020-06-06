@@ -251,10 +251,10 @@ public class TotalLinesOfCodeCalculator {
                 count = count + 2;
                 SwitchStmt switchStmt = (SwitchStmt) node;
                 nodeStack.addAll(switchStmt.getEntries());
-            } else if (node instanceof SwitchEntryStmt) {
+            } else if (node instanceof SwitchEntry) {
                 count = count + 1;
-                SwitchEntryStmt switchEntryStmt = (SwitchEntryStmt) node;
-                nodeStack.addAll(switchEntryStmt.getStatements());
+                SwitchEntry SwitchEntry = (SwitchEntry) node;
+                nodeStack.addAll(SwitchEntry.getStatements());
             } else {
                 logger.warn("Encountered type I'm not ready for: " + node.getClass());
                 logger.warn("Lines " + node.getBegin().get().line + " to " + node.getEnd().get().line + "\n");
