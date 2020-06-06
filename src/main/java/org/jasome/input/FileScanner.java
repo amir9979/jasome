@@ -33,6 +33,10 @@ public class FileScanner extends Scanner {
     public Project scan() {
 
         Collection<File> inputFiles = gatherFilesFrom(scanDir, filter);
+        for (File i: inputFiles) {
+            System.out.println(i);
+        }
+        return null;
 
         Collection<Pair<String, Map<String, String>>> sourceCodeWithAttributes = inputFiles
                 .stream()
