@@ -53,7 +53,7 @@ jobs:
       working-directory: ./my-tools
 
     - name: execute
-      run: ./jasome ./my-tools/src/java/org/apache/fop/svg/font -o output.xml
+      run: ./jasome ./my-tools/src/java/org/apache/fop/svg -o output.xml
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
