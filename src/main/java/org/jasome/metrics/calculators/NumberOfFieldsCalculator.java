@@ -32,12 +32,12 @@ public class NumberOfFieldsCalculator implements Calculator<Type> {
 
 
         long numAttributes = declaration.getFields().size();
-        long numStaticAttributes = declaration.getFields().stream().filter(f -> f.getModifiers().contains(Modifier.STATIC)).count();
-        long numPublicAttributes = declaration.getFields().stream().filter(f -> f.getModifiers().contains(Modifier.PUBLIC)).count();
+        long numStaticAttributes = declaration.getFields().stream().filter(f -> f.getModifiers().contains(Modifier.staticModifier())).count();
+        long numPublicAttributes = declaration.getFields().stream().filter(f -> f.getModifiers().contains(Modifier.publicModifier())).count();
 
         long numMethods = declaration.getMethods().size();
-        long numStaticMethods = declaration.getMethods().stream().filter(f -> f.getModifiers().contains(Modifier.STATIC)).count();
-        long numPublicMethods = declaration.getMethods().stream().filter(f -> f.getModifiers().contains(Modifier.PUBLIC)).count();
+        long numStaticMethods = declaration.getMethods().stream().filter(f -> f.getModifiers().contains(Modifier.staticModifier())).count();
+        long numPublicMethods = declaration.getMethods().stream().filter(f -> f.getModifiers().contains(Modifier.publicModifier())).count();
 
         return ImmutableSet.<Metric>builder()
                 .add(Metric.of("NF", "Number of Attributes", numAttributes))

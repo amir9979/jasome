@@ -218,15 +218,15 @@ public class MethodAndAttributeInheritanceCalculator implements Calculator<Type>
         }
 
         public boolean isProtected() {
-            return modifiers.contains(Modifier.PROTECTED);
+            return modifiers.contains(Modifier.protectedModifier());
         }
 
         public boolean isPrivate() {
-            return modifiers.contains(Modifier.PRIVATE);
+            return modifiers.contains(Modifier.privateModifier());
         }
 
         public boolean isPublic() {
-            return modifiers.contains(Modifier.PUBLIC);
+            return modifiers.contains(Modifier.publicModifier());
         }
 
         @Override
@@ -244,7 +244,7 @@ public class MethodAndAttributeInheritanceCalculator implements Calculator<Type>
         }
 
         public boolean isPublicish() {
-            return !modifiers.contains(Modifier.PRIVATE) && !modifiers.contains(Modifier.PROTECTED); //Public and default are both public enough
+            return !modifiers.contains(Modifier.privateModifier()) && !modifiers.contains(Modifier.protectedModifier()); //Public and default are both public enough
         }
     }
 }
