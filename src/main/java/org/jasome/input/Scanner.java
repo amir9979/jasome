@@ -25,10 +25,7 @@ import java.util.*;
 public abstract class Scanner<T> {
     private static final Logger logger = LoggerFactory.getLogger(Scanner.class);
 
-
     protected Project doScan(Collection<Pair<String, Map<String, String>>> sourceCode, String projectPath) {
-        ParserConfiguration configuration = new ParserConfiguration();
-        JavaParser parser = new JavaParser(configuration);
 
         JavaSymbolSolver symbolSolver = configureParserAndResolver(sourceCode, projectPath);
 
@@ -61,7 +58,7 @@ public abstract class Scanner<T> {
                             constructorDeclaration.getModifiers(),
                             constructorDeclaration.getAnnotations(),
                             constructorDeclaration.getTypeParameters(),
-                            parser.parseClassOrInterfaceType(classDefinition.getName().getIdentifier()),
+                            JavaParser.parseClassOrInterfaceType(classDefinition.getName().getIdentifier()),
                             constructorDeclaration.getName(),
                             false,
                             constructorDeclaration.getParameters(),
@@ -95,15 +92,13 @@ public abstract class Scanner<T> {
 
     private JavaSymbolSolver configureParserAndResolver(Collection<Pair<String, Map<String, String>>> sourceCode, String projectPath) {
         Set<File> sourceDirs = new HashSet<>();
-        ParserConfiguration configuration = new ParserConfiguration();
-        JavaParser parser = new JavaParser(configuration);
 
         for (Pair<String, Map<String, String>> sourceFile : sourceCode) {
             String sourceCodeContent = sourceFile.getLeft();
             Map<String, String> attributes = sourceFile.getRight();
 
             try {
-                CompilationUnit cu = parser.parse(sourceCodeContent);
+                CompilationUnit cu = JavaParser.parse(sourceCodeContent);
 
                 String sourceFileName = attributes.get("sourceFile");
 
@@ -151,14 +146,12 @@ public abstract class Scanner<T> {
         ParserConfiguration parserConfiguration = new ParserConfiguration()
                 .setAttributeComments(false)
                 .setSymbolResolver(symbolSolver);
-        parser.setStaticConfiguration(parserConfiguration);
+        JavaParser.setStaticConfiguration(parserConfiguration);
         return symbolSolver;
     }
 
 
     private Map<String, List<Pair<ClassOrInterfaceDeclaration, Map<String, String>>>> gatherPackages(Collection<Pair<String, Map<String, String>>> sourcesAndAttributes) {
-        ParserConfiguration configuration = new ParserConfiguration();
-        JavaParser parser = new JavaParser(configuration);
 
         Map<String, List<Pair<ClassOrInterfaceDeclaration, Map<String, String>>>> packages = new HashMap<>();
 
@@ -167,7 +160,7 @@ public abstract class Scanner<T> {
             Map<String, String> attributes = sourceFile.getRight();
 
             try {
-                CompilationUnit cu = parser.parse(sourceCode);
+                CompilationUnit cu = JavaParser.parse(sourceCode);
 
                 String packageName = cu.getPackageDeclaration().map((p) -> p.getName().asString()).orElse("default");
 
