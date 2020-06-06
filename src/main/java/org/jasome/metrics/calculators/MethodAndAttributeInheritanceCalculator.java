@@ -17,6 +17,7 @@ import org.jasome.metrics.value.NumericValue;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.lang.reflect.Modifier;
 
 public class MethodAndAttributeInheritanceCalculator implements Calculator<Type> {
 
