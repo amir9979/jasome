@@ -161,4 +161,4 @@ function splitJvmOpts() {
 eval splitJvmOpts $DEFAULT_JVM_OPTS $JAVA_OPTS $JASOME_OPTS
 
 
-exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.jasome.executive.CommandLineExecutive "$@"
+exec "$JAVACMD" -agentlib:hprof=cpu=samples "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.jasome.executive.CommandLineExecutive "$@"
