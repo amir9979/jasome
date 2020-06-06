@@ -18,16 +18,16 @@ class ProcessorFactory {
 
         processor.registerMethodCalculator(new CyclomaticComplexityCalculator());
         processor.registerTypeCalculator(new WeightedMethodsCalculator());
-//
-//        processor.registerMethodCalculator(new NumberOfParametersCalculator());
-//        processor.registerPackageCalculator(new NumberOfClassesCalculator());
-//
-//        processor.registerTypeCalculator(new SpecializationIndexCalculator());
-//
-//        processor.registerPackageCalculator(new RobertMartinCouplingCalculator());
 
-//        processor.registerMethodCalculator(new NestedBlockDepthCalculator());
-//        processor.registerTypeCalculator(new LackOfCohesionMethodsCalculator());
+        processor.registerMethodCalculator(new NumberOfParametersCalculator());
+        processor.registerPackageCalculator(new NumberOfClassesCalculator());
+
+        processor.registerTypeCalculator(new SpecializationIndexCalculator());
+
+        processor.registerPackageCalculator(new RobertMartinCouplingCalculator());
+
+        processor.registerMethodCalculator(new NestedBlockDepthCalculator());
+        processor.registerTypeCalculator(new LackOfCohesionMethodsCalculator());
 
 //        processor.registerTypeCalculator(new ClassInheritanceCalculator());
 //
