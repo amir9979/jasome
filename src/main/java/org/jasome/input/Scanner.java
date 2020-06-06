@@ -103,7 +103,7 @@ public abstract class Scanner<T> {
             Map<String, String> attributes = sourceFile.getRight();
 
             try {
-                CompilationUnit cu = parser.parse(sourceCodeContent);
+                CompilationUnit cu = parser.parse(sourceCodeContent).getResult();
 
                 String sourceFileName = attributes.get("sourceFile");
 
@@ -167,7 +167,7 @@ public abstract class Scanner<T> {
             Map<String, String> attributes = sourceFile.getRight();
 
             try {
-                CompilationUnit cu = parser.parse(sourceCode);
+                CompilationUnit cu = parser.parse(sourceCode).getResult();
 
                 String packageName = cu.getPackageDeclaration().map((p) -> p.getName().asString()).orElse("default");
 
