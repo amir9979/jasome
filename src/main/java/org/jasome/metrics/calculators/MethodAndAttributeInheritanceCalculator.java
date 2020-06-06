@@ -187,7 +187,7 @@ public class MethodAndAttributeInheritanceCalculator implements Calculator<Type>
         Set<Attribute> attributes = new HashSet<>();
         List<FieldDeclaration> declarations = type.getSource().getFields();
         for(FieldDeclaration declaration: declarations) {
-            EnumSet<Modifier> modifiers = declaration.getModifiers();
+            NodeList<Modifier> modifiers = declaration.getModifiers();
             NodeList<VariableDeclarator> variables = declaration.getVariables();
             for(VariableDeclarator variableDeclarator: variables) {
                 com.github.javaparser.ast.type.Type variableType = variableDeclarator.getType();
@@ -202,11 +202,11 @@ public class MethodAndAttributeInheritanceCalculator implements Calculator<Type>
     private class Attribute {
 
         private Type parentType;
-        private EnumSet<Modifier> modifiers;
+        private NodeList<Modifier> modifiers;
         private com.github.javaparser.ast.type.Type variableType;
         private SimpleName name;
 
-        public Attribute(Type parentType, EnumSet<Modifier> modifiers, com.github.javaparser.ast.type.Type variableType, SimpleName name) {
+        public Attribute(Type parentType, NodeList<Modifier> modifiers, com.github.javaparser.ast.type.Type variableType, SimpleName name) {
             this.parentType = parentType;
             this.modifiers = modifiers;
             this.variableType = variableType;
