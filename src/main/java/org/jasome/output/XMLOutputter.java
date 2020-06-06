@@ -68,6 +68,7 @@ public class XMLOutputter implements Outputter<Document> {
             return doc;
 
         } catch (ParserConfigurationException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 

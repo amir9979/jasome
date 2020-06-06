@@ -33,9 +33,6 @@ public class FileScanner extends Scanner {
     public Project scan() {
 
         Collection<File> inputFiles = gatherFilesFrom(scanDir, filter);
-        for (File i: inputFiles) {
-            System.out.println(i);
-        }
 
         Collection<Pair<String, Map<String, String>>> sourceCodeWithAttributes = inputFiles
                 .stream()
@@ -47,6 +44,7 @@ public class FileScanner extends Scanner {
 
                         return Optional.of(Pair.of(fileContents, attributes));
                     } catch (IOException e) {
+                        e.printStackTrace();
                         return Optional.empty();
                     }
                 }).filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
@@ -54,6 +52,9 @@ public class FileScanner extends Scanner {
         Project project = doScan(sourceCodeWithAttributes, scanDir.getAbsolutePath());
 
         project.addAttribute("sourceDir", scanDir.getAbsolutePath());
+        for (File i: inputFiles) {
+            System.out.println(i);
+        }
 
         return project;
     }

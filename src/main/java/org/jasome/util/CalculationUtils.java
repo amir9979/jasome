@@ -159,6 +159,7 @@ public class CalculationUtils {
                                         graph.putEdge(c, type)
                                 );
                             } catch (Exception e) {
+                                e.printStackTrace();
                                 //Ignore if a symbol can't be resolved
                             }
 

@@ -79,6 +79,7 @@ public class ProjectMetadata {
                             graph.putEdge(c, type)
                     );
                 } catch (Exception e) {
+                    e.printStackTrace();
                     //Ignore if a symbol can't be resolved
                 }
 
@@ -130,6 +131,7 @@ public class ProjectMetadata {
                                     dependencyGraph.putEdge(type, referencedType);
                             });
                 } catch (Exception e) {
+                    e.printStackTrace();
                     //Ignore anything unresolvable
                 }
 
@@ -152,6 +154,7 @@ public class ProjectMetadata {
                                     dependencyGraph.putEdge(type, referencedType);
                             });
                 } catch (Exception e) {
+                    e.printStackTrace();
                     //Ignore anything unresolvable
                 }
             }
@@ -243,6 +246,7 @@ public class ProjectMetadata {
 
             return method;
         } catch (Exception e) {
+            e.printStackTrace();
             return Optional.empty();
         }
     }
