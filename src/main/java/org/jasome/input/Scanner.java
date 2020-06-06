@@ -112,6 +112,7 @@ public abstract class Scanner<T> {
                     sourceDirs.add(new File(finalSourceBaseDir));
                     System.out.print(packagePrefix);
                     System.out.print('\t' + sourceDir + '\t');
+                    System.out.print('\t' + baseSourceDir + '\t');
                     System.out.println(finalSourceBaseDir);
                 } else {
                     sourceDirs.add(new File(FilenameUtils.getPath(sourceFileName)));
