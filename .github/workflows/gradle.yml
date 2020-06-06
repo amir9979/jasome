@@ -50,10 +50,10 @@ jobs:
         
     - name: Checkout tools repo
       run: git checkout fop-2_1
-      working-directory: ./my-tools/fop-core/src/main/java/org/apache/fop/fo/FONode.java
+      working-directory: ./my-tools
 
     - name: execute
-      run: ./jasome ./my-tools -o output.xml
+      run: ./jasome ./my-tools/src/java/org/apache/fop/cli/Main.java -o output.xml
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
