@@ -55,13 +55,6 @@ jobs:
     - name: execute
       run: ./jasome ./my-tools/src/java -o output.xml
     
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        # Artifact name
-        name: java.hprof.txt
-        # A file, directory or wildcard pattern that describes what to upload
-        path: java.hprof.txt
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2

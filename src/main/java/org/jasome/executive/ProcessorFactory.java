@@ -11,16 +11,16 @@ class ProcessorFactory {
 
         processor.registerTypeCalculator(new NumberOfFieldsCalculator());
 
-//        processor.registerProjectCalculator(new TotalLinesOfCodeCalculator.ProjectCalculator());
-//        processor.registerPackageCalculator(new TotalLinesOfCodeCalculator.PackageCalculator());
-//        processor.registerTypeCalculator(new TotalLinesOfCodeCalculator.TypeCalculator());
-//        processor.registerMethodCalculator(new TotalLinesOfCodeCalculator.MethodCalculator());
-//
-//        processor.registerMethodCalculator(new CyclomaticComplexityCalculator());
-//        processor.registerTypeCalculator(new WeightedMethodsCalculator());
-//
-//        processor.registerMethodCalculator(new NumberOfParametersCalculator());
-//        processor.registerPackageCalculator(new NumberOfClassesCalculator());
+        processor.registerProjectCalculator(new TotalLinesOfCodeCalculator.ProjectCalculator());
+        processor.registerPackageCalculator(new TotalLinesOfCodeCalculator.PackageCalculator());
+        processor.registerTypeCalculator(new TotalLinesOfCodeCalculator.TypeCalculator());
+        processor.registerMethodCalculator(new TotalLinesOfCodeCalculator.MethodCalculator());
+
+        processor.registerMethodCalculator(new CyclomaticComplexityCalculator());
+        processor.registerTypeCalculator(new WeightedMethodsCalculator());
+
+        processor.registerMethodCalculator(new NumberOfParametersCalculator());
+        processor.registerPackageCalculator(new NumberOfClassesCalculator());
 //
 //        processor.registerTypeCalculator(new SpecializationIndexCalculator());
 //
