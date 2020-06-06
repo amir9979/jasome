@@ -159,7 +159,6 @@ public class CalculationUtils {
                                         graph.putEdge(c, type)
                                 );
                             } catch (Exception e) {
-                                e.printStackTrace();
                                 //Ignore if a symbol can't be resolved
                             }
 
@@ -174,7 +173,6 @@ public class CalculationUtils {
             Optional<Package> optPackage = parentProject.lookupPackageByName(refType.getTypeDeclaration().getPackageName());
             return optPackage.flatMap(pkg -> pkg.lookupTypeByName(refType.getTypeDeclaration().getClassName()));
         } catch (Exception e) {
-            e.printStackTrace();
             return Optional.empty();
         }
     }

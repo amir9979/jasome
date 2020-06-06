@@ -55,7 +55,6 @@ public class LackOfCohesionMethodsCalculator implements Calculator<Type> {
             NumericValue lackOfCohesionMethods = numerator.divide(denominator);
             return ImmutableSet.of(Metric.of("LCOM*", "Lack of Cohesion Methods (H-S)", lackOfCohesionMethods));
         } catch (ArithmeticException e) {
-            e.printStackTrace();
             return ImmutableSet.of();
         }
 
