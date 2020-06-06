@@ -36,27 +36,26 @@ public class FileScanner extends Scanner {
         for (File i: inputFiles) {
             System.out.println(i);
         }
-        return null;
 
-//        Collection<Pair<String, Map<String, String>>> sourceCodeWithAttributes = inputFiles
-//                .stream()
-//                .<Optional<Pair<String, Map<String, String>>>>map(file -> {
-//                    try {
-//                        String fileContents = FileUtils.readFileToString(file, Charset.defaultCharset());
-//
-//                        Map<String, String> attributes = ImmutableMap.of("sourceFile", file.getAbsolutePath().replace(scanDir.getAbsolutePath(), "."));
-//
-//                        return Optional.of(Pair.of(fileContents, attributes));
-//                    } catch (IOException e) {
-//                        return Optional.empty();
-//                    }
-//                }).filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
-//
-//        Project project = doScan(sourceCodeWithAttributes, scanDir.getAbsolutePath());
-//
-//        project.addAttribute("sourceDir", scanDir.getAbsolutePath());
-//
-//        return project;
+        Collection<Pair<String, Map<String, String>>> sourceCodeWithAttributes = inputFiles
+                .stream()
+                .<Optional<Pair<String, Map<String, String>>>>map(file -> {
+                    try {
+                        String fileContents = FileUtils.readFileToString(file, Charset.defaultCharset());
+
+                        Map<String, String> attributes = ImmutableMap.of("sourceFile", file.getAbsolutePath().replace(scanDir.getAbsolutePath(), "."));
+
+                        return Optional.of(Pair.of(fileContents, attributes));
+                    } catch (IOException e) {
+                        return Optional.empty();
+                    }
+                }).filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
+
+        Project project = doScan(sourceCodeWithAttributes, scanDir.getAbsolutePath());
+
+        project.addAttribute("sourceDir", scanDir.getAbsolutePath());
+
+        return project;
     }
 
     public void setFilter(IOFileFilter filter) {
