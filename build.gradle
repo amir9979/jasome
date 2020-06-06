@@ -28,7 +28,7 @@ dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
     compile group: 'commons-cli', name: 'commons-cli', version: '1.3.1'
     //compile group: 'com.github.javaparser', name: 'javaparser-core', version: '3.6.9'
-    compile 'com.github.javaparser:javaparser-symbol-solver-core:3.6.25'
+    compile 'com.github.javaparser:javaparser-symbol-solver-core:3.6.27'
 
     compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
 
