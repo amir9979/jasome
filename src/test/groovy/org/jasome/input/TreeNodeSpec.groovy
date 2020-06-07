@@ -6,20 +6,6 @@ import org.jasome.util.TestUtil
 
 class TreeNodeSpec extends Specification {
 
-    def "checker"() {
-
-        given:
-        int left = 2
-        int right = 2
-
-        Project project = TestUtil.projectFromSnippet('')
-
-        when:
-        int result = left + right
-
-        then:
-        result == 4
-    }
 
     def "correctly computes equals and hashcodes for objects using their parents"() {
 
