@@ -12,7 +12,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'new project')
+    #if: contains(github.event.issue.labels.*.name, 'new project')
     steps:
     - name: log
     - run: echo working on repo ${{github.event.issue.title}} at tag ${{github.event.issue.body}}
