@@ -64,6 +64,7 @@ class TestUtil {
 
         //File tempDir = File.createTempFile("jasome", "test")
 
+        System.out.println("Running projectFromSnippet")
         File tempDir = new File(Files.createTempDir(), new Faker().letterify("Test?????"))
         tempDir.mkdirs()
         System.err.println("Running tests using source dir "+tempDir)
