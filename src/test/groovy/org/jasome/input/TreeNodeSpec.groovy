@@ -18,21 +18,13 @@ class TreeNodeSpec extends Specification {
                 return "thing";
             }
         }
-        ''','''
-        package org.whatever.stuff2;
-
-        class Thing2 {
-            public String toString() {
-                return "Thing 2";
-            }
-        }
         ''')
 
         when:
         Set<Package> packages = project.getPackages()
 
         then:
-        packages.size() == 2
+        packages.size() == 1
     }
 
     def "correctly computes equals and hashcodes for objects using their parents"() {
