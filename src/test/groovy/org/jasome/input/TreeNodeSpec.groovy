@@ -2,8 +2,7 @@ package org.jasome.input
 
 import spock.lang.Specification
 
-import static org.jasome.util.TestUtil.projectFromSnippet
-import static org.jasome.util.TestUtil.projectFromSnippet
+import org.jasome.util.TestUtil.projectFromSnippet
 
 class TreeNodeSpec extends Specification {
 
