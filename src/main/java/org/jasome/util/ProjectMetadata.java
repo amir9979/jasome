@@ -142,7 +142,7 @@ public class ProjectMetadata {
 
                 try {
                     ResolvedType declaration = parameter.resolve();
-                    OpResolvedTypeParameterDeclaration  decl = declaration.asReferenceType().asReferenceType().getTypeDeclaration().get();
+                    ResolvedTypeParameterDeclaration  decl = declaration.asReferenceType().asReferenceType().getTypeDeclaration().get();
                     String packageName = decl.getPackageName();
                     String className = decl.getName();
 
