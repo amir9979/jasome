@@ -13,15 +13,15 @@ class TreeNodeSpec extends Specification {
         int left = 2
         int right = 2
 
-//        def project = projectFromSnippet('''
-//        package org.whatever.stuff1;
-//
-//        class Thing1 {
-//            public String toString() {
-//                return "thing";
-//            }
-//        }
-//        ''')
+        Project project = projectFromSnippet('''
+        package org.whatever.stuff1;
+
+        class Thing1 {
+            public String toString() {
+                return "thing";
+            }
+        }
+        ''')
 
         when:
         int result = left + right
