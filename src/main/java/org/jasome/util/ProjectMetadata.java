@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.apache.commons.lang3.tuple.Triple;
 
 public class ProjectMetadata {
 
@@ -178,7 +179,7 @@ public class ProjectMetadata {
     }
 
     private Network<Method, Distinct<Expression>> buildCallNetwork() {
-        MutableNetwork<Method, Distinct<Expression>> network = NetworkBuilder.directed().allowsSelfLoops(true).allowsParallelEdges(true).build();
+        MutableNetwork<Method, Distinct<Triple<Method, Method, Expression>>> network = NetworkBuilder.directed().allowsSelfLoops(true).allowsParallelEdges(true).build();
 
         Set<Method> allMethods = project.getPackages()
                 .stream()
@@ -195,7 +196,7 @@ public class ProjectMetadata {
                 Optional<Method> methodCalled = getMethodCalledByMethodExpression(methodCall);
 
                 if (methodCalled.isPresent()) {
-                    network.addEdge(method, methodCalled.orElse(Method.UNKNOWN), Distinct.of(methodCall));
+                    network.addEdge(method, methodCalled.orElse(Method.UNKNOWN), Distinct.of(Triple.of(method, methodCalled.orElse(Method.UNKNOWN), methodCall)));
                 }
 
             }
