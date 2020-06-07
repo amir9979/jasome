@@ -13,7 +13,7 @@ class RobertMartinCouplingCalculatorSpec extends Specification {
     def "calculate simple coupling metrics"() {
 
         given:
-        def project = projectFromSnippet '''
+        def project = projectFromSnippetVarArgs '''
         package org.whatever.stuff;
         
         import org.whatever.stuff2.*;
@@ -118,7 +118,7 @@ class RobertMartinCouplingCalculatorSpec extends Specification {
     def "calculate assumes contradictory names are used within the package"() {
 
         given:
-        def project = projectFromSnippet '''
+        def project = projectFromSnippetVarArgs '''
         package org.whatever.stuff;
         
         import org.whatever.stuff2.*;
@@ -175,7 +175,7 @@ class RobertMartinCouplingCalculatorSpec extends Specification {
     def "doesn't count non-public classes"() {
 
         given:
-        def project = projectFromSnippet '''
+        def project = projectFromSnippetVarArgs '''
         package org.whatever.stuff;
         
         import org.whatever.stuff2.*;
@@ -227,7 +227,7 @@ class RobertMartinCouplingCalculatorSpec extends Specification {
     def "able to see public static classes"() {
 
         given:
-        def project = projectFromSnippet '''
+        def project = projectFromSnippetVarArgs '''
         package org.whatever.stuff;
         
         import org.whatever.stuff2.*;

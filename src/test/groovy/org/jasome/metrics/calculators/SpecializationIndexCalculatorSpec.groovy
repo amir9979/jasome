@@ -98,7 +98,7 @@ class SpecializationIndexCalculatorSpec extends Specification {
     def "calculate depth uses the correct class when classes have same name"() {
 
         given:
-        def project = projectFromSnippet '''
+        def project = projectFromSnippetVarArgs '''
         package org.whatever.stuff;
 
         interface I {
@@ -136,7 +136,7 @@ class SpecializationIndexCalculatorSpec extends Specification {
     def "calculate depth uses the correct class even if it's not the closest class when classes have same name"() {
 
         given:
-        def project = projectFromSnippet '''
+        def project = projectFromSnippetVarArgs '''
         package org.whatever.stuff;
 
         interface I {

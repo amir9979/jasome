@@ -60,7 +60,7 @@ class TestUtil {
     }
     
 
-    static Project projectFromSnippet(String... sourceCodes) {
+    static Project projectFromSnippetVarArgs(String... sourceCodes) {
 
         //File tempDir = File.createTempFile("jasome", "test")
 

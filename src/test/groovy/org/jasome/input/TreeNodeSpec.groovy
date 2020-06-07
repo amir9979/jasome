@@ -9,7 +9,7 @@ class TreeNodeSpec extends Specification {
     def "correctly computes equals and hashcodes for objects using their parents"() {
 
         given:
-        def project = projectFromSnippet('''
+        def project = projectFromSnippetVarArgs('''
         package org.whatever.stuff1;
 
         class Thing1 {
