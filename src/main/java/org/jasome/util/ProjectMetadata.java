@@ -109,6 +109,9 @@ public class ProjectMetadata {
                 .map(Package::getTypes).flatMap(Set::stream).collect(Collectors.toSet());
 
         for (Type type : allTypes) {
+            if ("Type(PDFOutline)".equals(type.toString())){
+                continue;
+            }
             System.out.println(type);
             dependencyGraph.addNode(type);
 
