@@ -109,6 +109,7 @@ public class ProjectMetadata {
                 .map(Package::getTypes).flatMap(Set::stream).collect(Collectors.toSet());
 
         for (Type type : allTypes) {
+            System.out.println(type);
             dependencyGraph.addNode(type);
 
             //We can have class uses via chained method calls without referencing one of the types directly
@@ -126,7 +127,6 @@ public class ProjectMetadata {
                             .lookupPackageByName(packageName)
                             .flatMap(pkg -> pkg.lookupTypeByName(className))
                             .ifPresent(referencedType -> {
-                                System.out.println("1");
                                 if (type != referencedType)
                                     dependencyGraph.putEdge(type, referencedType);
                             });
@@ -149,7 +149,6 @@ public class ProjectMetadata {
                             lookupPackageByName(packageName)
                             .flatMap(pkg -> pkg.lookupTypeByName(className))
                             .ifPresent(referencedType -> {
-                                System.out.println("2");
                                 if (type != referencedType)
                                     dependencyGraph.putEdge(type, referencedType);
                             });
