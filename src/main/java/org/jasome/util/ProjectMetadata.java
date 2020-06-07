@@ -193,7 +193,7 @@ public class ProjectMetadata {
                 Optional<Method> methodCalled = getMethodCalledByMethodExpression(methodCall);
 
                 if (methodCalled.isPresent()) {
-                    network.addEdge(method, methodCalled.orElse(Method.UNKNOWN), Distinct.of(methodCall));
+                    network.addEdge(method, methodCalled.orElse(Method.UNKNOWN), Distinct.of(methodCall.get()));
                 }
 
             }
