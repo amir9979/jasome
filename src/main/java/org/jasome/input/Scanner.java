@@ -64,7 +64,6 @@ public abstract class Scanner<T> {
                             constructorDeclaration.getThrownExceptions(),
                             constructorDeclaration.getBody()
                     );
-                    constructorDeclaration.setDefault(false);
                     Method constructor = new Method(constructorMethodDeclaration);
                     type.addMethod(constructor);
 
