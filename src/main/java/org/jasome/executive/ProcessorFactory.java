@@ -26,8 +26,8 @@ class ProcessorFactory {
 
         processor.registerPackageCalculator(new RobertMartinCouplingCalculator());
 
-//        processor.registerMethodCalculator(new NestedBlockDepthCalculator());
-//        processor.registerTypeCalculator(new LackOfCohesionMethodsCalculator());
+        processor.registerMethodCalculator(new NestedBlockDepthCalculator());
+        processor.registerTypeCalculator(new LackOfCohesionMethodsCalculator());
 
 //        processor.registerTypeCalculator(new ClassInheritanceCalculator());
 
@@ -35,7 +35,7 @@ class ProcessorFactory {
 
 //        processor.registerMethodCalculator(new FanCalculator());
 //        processor.registerTypeCalculator(new LinkCalculator());
-//        processor.registerMethodCalculator(new McclureCalculator());
+        processor.registerMethodCalculator(new McclureCalculator());
 
         processor.registerTypeCalculator(new TypeAggregatorCalculator());
         processor.registerPackageCalculator(new PackageAggregatorCalculator());
