@@ -109,7 +109,7 @@ public class ProjectMetadata {
                 .map(Package::getTypes).flatMap(Set::stream).collect(Collectors.toSet());
 
         for (Type type : allTypes) {
-            if ("Type(PDFOutline)".equals(type.toString())){
+            if ("Type(PDFOutline)".equals(type.toString()) || "Type(MODCAParser)".equals(type.toString())){
                 continue;
             }
             System.out.println(type);
@@ -120,6 +120,7 @@ public class ProjectMetadata {
 
             for (MethodCallExpr methodCall : calls) {
                 try {
+                    System.out.println(methodCall);
                     ResolvedMethodDeclaration resolvedMethodDeclaration = methodCall.resolve();
                     ResolvedReferenceTypeDeclaration declaringType = resolvedMethodDeclaration.declaringType();
 
@@ -144,6 +145,7 @@ public class ProjectMetadata {
             for (ReferenceType parameter : parameters) {
 
                 try {
+                    System.out.println(parameter);
                     ResolvedType declaration = parameter.resolve();
                     String packageName = declaration.asReferenceType().asReferenceType().getTypeDeclaration().getPackageName();
                     String className = declaration.asReferenceType().asReferenceType().getTypeDeclaration().getName();
