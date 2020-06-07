@@ -22,18 +22,18 @@ class ProcessorFactory {
         processor.registerMethodCalculator(new NumberOfParametersCalculator());
         processor.registerPackageCalculator(new NumberOfClassesCalculator());
 
-//        processor.registerTypeCalculator(new SpecializationIndexCalculator());
+        processor.registerTypeCalculator(new SpecializationIndexCalculator());
 
         processor.registerPackageCalculator(new RobertMartinCouplingCalculator());
 
         processor.registerMethodCalculator(new NestedBlockDepthCalculator());
         processor.registerTypeCalculator(new LackOfCohesionMethodsCalculator());
 
-//        processor.registerTypeCalculator(new ClassInheritanceCalculator());
+        processor.registerTypeCalculator(new ClassInheritanceCalculator());
 
-//        processor.registerTypeCalculator(new MethodAndAttributeInheritanceCalculator());
+        processor.registerTypeCalculator(new MethodAndAttributeInheritanceCalculator());
 
-//        processor.registerMethodCalculator(new FanCalculator());
+        processor.registerMethodCalculator(new FanCalculator());
         processor.registerTypeCalculator(new LinkCalculator());
         processor.registerMethodCalculator(new McclureCalculator());
 
