@@ -165,9 +165,9 @@ public class ProjectMetadata {
         return ImmutableGraph.copyOf(dependencyGraph);
     }
 
-    private volatile Network<Method, Distinct<Expression>> callNetwork;
+    private volatile Network<Method, Distinct<Triple<Method, Method, Expression>>> callNetwork;
 
-    public Network<Method, Distinct<Expression>> getCallNetwork() {
+    public Network<Method, Distinct<Triple<Method, Method, Expression>>> getCallNetwork() {
         if (callNetwork == null) {
             synchronized(this) {
                 if (callNetwork == null) {
@@ -178,7 +178,7 @@ public class ProjectMetadata {
         return callNetwork;
     }
 
-    private Network<Method, Distinct<Expression>> buildCallNetwork() {
+    private Network<Method, Distinct<Triple<Method, Method, Expression>>> buildCallNetwork() {
         MutableNetwork<Method, Distinct<Triple<Method, Method, Expression>>> network = NetworkBuilder.directed().allowsSelfLoops(true).allowsParallelEdges(true).build();
 
         Set<Method> allMethods = project.getPackages()

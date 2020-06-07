@@ -17,7 +17,7 @@ public class FanCalculator implements Calculator<Method> {
     @Override
     public synchronized Set<Metric> calculate(Method method) {
 
-        Network<Method, Distinct<Expression>> methodCalls = method.getParentType().getParentPackage().getParentProject().getMetadata().getCallNetwork();
+        Network<Method, Distinct<Triple<Method, Method, Expression>>> methodCalls = method.getParentType().getParentPackage().getParentProject().getMetadata().getCallNetwork();
 
         Set<Method> methodsCalled = methodCalls.successors(method);
 
