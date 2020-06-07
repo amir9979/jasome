@@ -60,11 +60,11 @@ public abstract class Scanner<T> {
                             constructorDeclaration.getTypeParameters(),
                             JavaParser.parseClassOrInterfaceType(classDefinition.getName().getIdentifier()),
                             constructorDeclaration.getName(),
-                            false,
                             constructorDeclaration.getParameters(),
                             constructorDeclaration.getThrownExceptions(),
                             constructorDeclaration.getBody()
                     );
+                    constructorDeclaration.setDefault(false);
                     Method constructor = new Method(constructorMethodDeclaration);
                     type.addMethod(constructor);
 
