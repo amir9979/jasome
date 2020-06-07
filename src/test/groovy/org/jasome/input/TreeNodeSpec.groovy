@@ -2,7 +2,7 @@ package org.jasome.input
 
 import spock.lang.Specification
 
-import org.jasome.util.TestUtil.projectFromSnippet
+import org.jasome.util.TestUtil
 
 class TreeNodeSpec extends Specification {
 
@@ -12,7 +12,7 @@ class TreeNodeSpec extends Specification {
         int left = 2
         int right = 2
 
-        Project project = projectFromSnippet('''
+        Project project = TestUtil.projectFromSnippet('''
         package org.whatever.stuff1;
 
         class Thing1 {
