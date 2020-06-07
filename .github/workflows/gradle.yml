@@ -53,7 +53,7 @@ jobs:
       working-directory: ./my-tools
 
     - name: execute
-      run: ./jasome ./my-tools/src/java -o output.xml
+      run: ./jasome ./my-tools/ -o output.xml
     
 
     - name: Upload a Build Artifact
