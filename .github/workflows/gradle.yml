@@ -4,16 +4,15 @@
 name: Java CI with Gradle 
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  issues:
+    types: [opened]
 
 jobs:
+   
   build:
 
     runs-on: ubuntu-latest
-
+    if: contains(github.event.issue.labels.*.name, 'new project')
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
@@ -43,13 +42,13 @@ jobs:
     - name: Checkout tools repo
       uses: actions/checkout@v2
       with:
-        repository: apache/xmlgraphics-fop
+        repository: ${{github.event.issue.title}}
         path: ./my-tools
         fetch-depth: 0
         ref: fop-2_1
         
     - name: Checkout tools repo
-      run: git checkout fop-2_1
+      run: git checkout ${{github.event.issue.body}}
       working-directory: ./my-tools
 
     - name: execute
@@ -60,7 +59,22 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
-        name: output.xml
+        name: ${{github.event.issue.title}}_${{github.event.issue.body}}.xml
         # A file, directory or wildcard pattern that describes what to upload
         path: output.xml
 
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v1-release
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: output.xml
+        asset_name: ${{github.event.issue.title}}_${{github.event.issue.body}}.xml
+        tag: ${{ github.ref }}
+        overwrite: true
+    
+    - name: Close Issue
+      uses: peter-evans/close-issue@v1
+      with:
+        comment: |
+          The issue you have reported seems to be resolved now.
+          The new projects data can be found at releases
