@@ -9,7 +9,7 @@ class TreeNodeSpec extends Specification {
     def "correctly computes equals and hashcodes for objects using their parents"() {
 
         given:
-        def project = projectFromSnippet '''
+        def project = projectFromSnippet('''
         package org.whatever.stuff1;
 
         class Thing1 {
@@ -25,7 +25,7 @@ class TreeNodeSpec extends Specification {
                 return "Thing 2";
             }
         }
-        '''
+        ''')
 
         when:
         Set<Package> packages = project.getPackages()
@@ -64,7 +64,7 @@ class TreeNodeSpec extends Specification {
     def "correctly names classes and methods"() {
 
         given:
-        def project = projectFromSnippet '''
+        def project = projectFromSnippet('''
         package org.whatever.stuff;
 
         class Thing1 {
@@ -82,7 +82,7 @@ class TreeNodeSpec extends Specification {
                 }
             }
         }
-        '''
+        ''')
 
         when:
         Set<Package> packages = project.getPackages()
