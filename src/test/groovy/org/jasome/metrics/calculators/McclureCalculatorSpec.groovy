@@ -6,6 +6,7 @@ import spock.lang.Specification
 
 import static org.jasome.util.Matchers.containsMetric
 import static org.jasome.util.TestUtil.projectFromSnippet
+import static org.jasome.util.TestUtil.projectFromSnippetVarArgs
 import static spock.util.matcher.HamcrestSupport.expect
 
 class McclureCalculatorSpec extends Specification {

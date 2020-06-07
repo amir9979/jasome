@@ -3,6 +3,7 @@ package org.jasome.input
 import spock.lang.Specification
 
 import static org.jasome.util.TestUtil.projectFromSnippet
+import static org.jasome.util.TestUtil.projectFromSnippetVarArgs
 
 class TreeNodeSpec extends Specification {
 
