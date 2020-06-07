@@ -34,8 +34,8 @@ class ProcessorFactory {
 //        processor.registerTypeCalculator(new MethodAndAttributeInheritanceCalculator());
 
 //        processor.registerMethodCalculator(new FanCalculator());
-//        processor.registerTypeCalculator(new LinkCalculator());
-        processor.registerMethodCalculator(new McclureCalculator());
+        processor.registerTypeCalculator(new LinkCalculator());
+//        processor.registerMethodCalculator(new McclureCalculator());
 
         processor.registerTypeCalculator(new TypeAggregatorCalculator());
         processor.registerPackageCalculator(new PackageAggregatorCalculator());
