@@ -24,10 +24,14 @@ import java.util.*;
 
 public abstract class Scanner<T> {
     private static final Logger logger = LoggerFactory.getLogger(Scanner.class);
+    private JavaParser parser;
+
+    public Scanner(){
+        parser = new JavaParser();
+    }
 
     protected Project doScan(Collection<Pair<String, Map<String, String>>> sourceCode, String projectPath) {
-        ParserConfiguration configuration = new ParserConfiguration();
-        JavaParser parser = new JavaParser(configuration);
+
 
         JavaSymbolSolver symbolSolver = configureParserAndResolver(sourceCode, projectPath);
 
@@ -93,8 +97,6 @@ public abstract class Scanner<T> {
 
     private JavaSymbolSolver configureParserAndResolver(Collection<Pair<String, Map<String, String>>> sourceCode, String projectPath) {
         Set<File> sourceDirs = new HashSet<>();
-        ParserConfiguration configuration = new ParserConfiguration();
-        JavaParser parser = new JavaParser(configuration);
 
 
         for (Pair<String, Map<String, String>> sourceFile : sourceCode) {
@@ -148,7 +150,7 @@ public abstract class Scanner<T> {
         ParserConfiguration parserConfiguration = new ParserConfiguration()
                 .setAttributeComments(false)
                 .setSymbolResolver(symbolSolver);
-        parser.setStaticConfiguration(parserConfiguration).getResult().get();
+        parser = new JavaParser(parserConfiguration);
         return symbolSolver;
     }
 
@@ -156,8 +158,6 @@ public abstract class Scanner<T> {
     private Map<String, List<Pair<ClassOrInterfaceDeclaration, Map<String, String>>>> gatherPackages(Collection<Pair<String, Map<String, String>>> sourcesAndAttributes) {
 
         Map<String, List<Pair<ClassOrInterfaceDeclaration, Map<String, String>>>> packages = new HashMap<>();
-        ParserConfiguration configuration = new ParserConfiguration();
-        JavaParser parser = new JavaParser(configuration);
 
 
         for (Pair<String, Map<String, String>> sourceFile : sourcesAndAttributes) {
