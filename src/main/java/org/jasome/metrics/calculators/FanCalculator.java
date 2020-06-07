@@ -25,7 +25,7 @@ public class FanCalculator implements Calculator<Method> {
         int fanOut = 0;
 
         for (Method methodCalled : methodsCalled) {
-            Set<Distinct<Expression>> calls = methodCalls.edgesConnecting(method, methodCalled);
+            Set<Distinct<Triple<Method, Method, Expression>>> calls = methodCalls.edgesConnecting(method, methodCalled);
             fanOut += calls.size();
         }
 
@@ -34,7 +34,7 @@ public class FanCalculator implements Calculator<Method> {
         int fanIn = 0;
 
         for (Method methodCalling : methodsCalling) {
-            Set<Distinct<Expression>> calls = methodCalls.edgesConnecting(methodCalling, method);
+            Set<Distinct<Triple<Method, Method, Expression>>> calls = methodCalls.edgesConnecting(methodCalling, method);
             fanIn += calls.size();
         }
 
