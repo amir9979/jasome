@@ -7,6 +7,34 @@ import static org.jasome.util.TestUtil.projectFromSnippet
 
 class TreeNodeSpec extends Specification {
 
+    def "checker"() {
+
+        given:
+        def project = projectFromSnippet('''
+        package org.whatever.stuff1;
+
+        class Thing1 {
+            public String toString() {
+                return "thing";
+            }
+        }
+        ''','''
+        package org.whatever.stuff2;
+
+        class Thing2 {
+            public String toString() {
+                return "Thing 2";
+            }
+        }
+        ''')
+
+        when:
+        Set<Package> packages = project.getPackages()
+
+        then:
+        packages.size() == 2
+    }
+
     def "correctly computes equals and hashcodes for objects using their parents"() {
 
         given:
