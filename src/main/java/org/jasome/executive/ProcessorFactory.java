@@ -29,9 +29,9 @@ class ProcessorFactory {
 //        processor.registerMethodCalculator(new NestedBlockDepthCalculator());
 //        processor.registerTypeCalculator(new LackOfCohesionMethodsCalculator());
 //
-//        processor.registerTypeCalculator(new ClassInheritanceCalculator());
-//
-        processor.registerTypeCalculator(new MethodAndAttributeInheritanceCalculator());
+        processor.registerTypeCalculator(new ClassInheritanceCalculator());
+
+//        processor.registerTypeCalculator(new MethodAndAttributeInheritanceCalculator());
 
 //        processor.registerMethodCalculator(new FanCalculator());
 //        processor.registerTypeCalculator(new LinkCalculator());
