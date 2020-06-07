@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.issue.labels.*.name, 'new project')
     steps:
+    - name: log
+    - run: echo working on repo ${{github.event.issue.title}} at tag ${{github.event.issue.body}}
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
