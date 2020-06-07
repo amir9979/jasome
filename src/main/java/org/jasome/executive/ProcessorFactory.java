@@ -24,9 +24,9 @@ class ProcessorFactory {
 
 //        processor.registerTypeCalculator(new SpecializationIndexCalculator());
 
-//        processor.registerPackageCalculator(new RobertMartinCouplingCalculator());
+        processor.registerPackageCalculator(new RobertMartinCouplingCalculator());
 
-        processor.registerMethodCalculator(new NestedBlockDepthCalculator());
+//        processor.registerMethodCalculator(new NestedBlockDepthCalculator());
 //        processor.registerTypeCalculator(new LackOfCohesionMethodsCalculator());
 
 //        processor.registerTypeCalculator(new ClassInheritanceCalculator());
