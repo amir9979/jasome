@@ -60,7 +60,7 @@ public abstract class Scanner<T> {
                             constructorDeclaration.getModifiers(),
                             constructorDeclaration.getAnnotations(),
                             constructorDeclaration.getTypeParameters(),
-                            parser.parseClassOrInterfaceType(classDefinition.getName().getIdentifier()),
+                            parser.parseClassOrInterfaceType(classDefinition.getName().getIdentifier()).getResult().get(),
                             constructorDeclaration.getName(),
                             constructorDeclaration.getParameters(),
                             constructorDeclaration.getThrownExceptions(),
@@ -102,7 +102,7 @@ public abstract class Scanner<T> {
             Map<String, String> attributes = sourceFile.getRight();
 
             try {
-                CompilationUnit cu = parser.parse(sourceCodeContent);
+                CompilationUnit cu = parser.parse(sourceCodeContent).getResult().get();
 
                 String sourceFileName = attributes.get("sourceFile");
 
@@ -148,7 +148,7 @@ public abstract class Scanner<T> {
         ParserConfiguration parserConfiguration = new ParserConfiguration()
                 .setAttributeComments(false)
                 .setSymbolResolver(symbolSolver);
-        parser.setStaticConfiguration(parserConfiguration);
+        parser.setStaticConfiguration(parserConfiguration).getResult().get();
         return symbolSolver;
     }
 
@@ -165,7 +165,7 @@ public abstract class Scanner<T> {
             Map<String, String> attributes = sourceFile.getRight();
 
             try {
-                CompilationUnit cu = parser.parse(sourceCode);
+                CompilationUnit cu = parser.parse(sourceCode).getResult().get();
 
                 String packageName = cu.getPackageDeclaration().map((p) -> p.getName().asString()).orElse("default");
 
