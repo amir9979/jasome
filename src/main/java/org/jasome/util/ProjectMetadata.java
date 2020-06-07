@@ -114,26 +114,26 @@ public class ProjectMetadata {
             //We can have class uses via chained method calls without referencing one of the types directly
             List<MethodCallExpr> calls = type.getSource().findAll(MethodCallExpr.class);
 
-            for (MethodCallExpr methodCall : calls) {
-                try {
-                    ResolvedMethodDeclaration resolvedMethodDeclaration = methodCall.resolve();
-                    ResolvedReferenceTypeDeclaration declaringType = resolvedMethodDeclaration.declaringType();
-
-                    String packageName = declaringType.getPackageName();
-                    String className = declaringType.getName();
-
-                    project
-                            .lookupPackageByName(packageName)
-                            .flatMap(pkg -> pkg.lookupTypeByName(className))
-                            .ifPresent(referencedType -> {
-                                if (type != referencedType)
-                                    dependencyGraph.putEdge(type, referencedType);
-                            });
-                } catch (Exception e) {
-                    //Ignore anything unresolvable
-                }
-
-            }
+//            for (MethodCallExpr methodCall : calls) {
+//                try {
+//                    ResolvedMethodDeclaration resolvedMethodDeclaration = methodCall.resolve();
+//                    ResolvedReferenceTypeDeclaration declaringType = resolvedMethodDeclaration.declaringType();
+//
+//                    String packageName = declaringType.getPackageName();
+//                    String className = declaringType.getName();
+//
+//                    project
+//                            .lookupPackageByName(packageName)
+//                            .flatMap(pkg -> pkg.lookupTypeByName(className))
+//                            .ifPresent(referencedType -> {
+//                                if (type != referencedType)
+//                                    dependencyGraph.putEdge(type, referencedType);
+//                            });
+//                } catch (Exception e) {
+//                    //Ignore anything unresolvable
+//                }
+//
+//            }
 
             List<ReferenceType> parameters = type.getSource().findAll(ReferenceType.class);
 
