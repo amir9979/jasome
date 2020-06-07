@@ -16,7 +16,7 @@ repositories {
 }
 dependencies {
     //General language sugar
-    compile(group: 'com.google.guava', name: 'guava', version: '25.1-jre')
+    compile(group: 'com.google.guava', name: 'guava', version: '29.0-jre')
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
 
     //Libraries
