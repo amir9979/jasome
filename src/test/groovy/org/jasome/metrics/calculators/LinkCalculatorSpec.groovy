@@ -8,7 +8,7 @@ import static org.jasome.util.Matchers.containsMetric
 import static org.jasome.util.Matchers.containsMetric
 import static org.jasome.util.Matchers.containsMetric
 import static org.jasome.util.Matchers.containsMetric
-import static org.jasome.util.TestUtil.projectFromSnippetVarArgs
+import static org.jasome.util.TestUtil.projectFromSnippet
 import static org.jasome.util.TestUtil.projectFromSnippet
 import static spock.util.matcher.HamcrestSupport.expect
 import static spock.util.matcher.HamcrestSupport.expect

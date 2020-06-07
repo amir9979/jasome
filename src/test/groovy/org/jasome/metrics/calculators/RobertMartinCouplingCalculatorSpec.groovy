@@ -6,7 +6,7 @@ import spock.lang.Specification
 import static org.jasome.util.Matchers.containsMetric
 import static org.jasome.util.Matchers.doesNotContainMetric
 import static org.jasome.util.TestUtil.projectFromSnippet
-import static org.jasome.util.TestUtil.projectFromSnippetVarArgs
+import static org.jasome.util.TestUtil.projectFromSnippet
 import static spock.util.matcher.HamcrestSupport.expect
 
 class RobertMartinCouplingCalculatorSpec extends Specification {
@@ -14,7 +14,7 @@ class RobertMartinCouplingCalculatorSpec extends Specification {
     def "calculate simple coupling metrics"() {
 
         given:
-        def project = projectFromSnippetVarArgs '''
+        def project = projectFromSnippet '''
         package org.whatever.stuff;
         
         import org.whatever.stuff2.*;
@@ -119,7 +119,7 @@ class RobertMartinCouplingCalculatorSpec extends Specification {
     def "calculate assumes contradictory names are used within the package"() {
 
         given:
-        def project = projectFromSnippetVarArgs '''
+        def project = projectFromSnippet '''
         package org.whatever.stuff;
         
         import org.whatever.stuff2.*;
@@ -176,7 +176,7 @@ class RobertMartinCouplingCalculatorSpec extends Specification {
     def "doesn't count non-public classes"() {
 
         given:
-        def project = projectFromSnippetVarArgs '''
+        def project = projectFromSnippet '''
         package org.whatever.stuff;
         
         import org.whatever.stuff2.*;
@@ -228,7 +228,7 @@ class RobertMartinCouplingCalculatorSpec extends Specification {
     def "able to see public static classes"() {
 
         given:
-        def project = projectFromSnippetVarArgs '''
+        def project = projectFromSnippet '''
         package org.whatever.stuff;
         
         import org.whatever.stuff2.*;

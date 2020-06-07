@@ -3,14 +3,14 @@ package org.jasome.input
 import spock.lang.Specification
 
 import static org.jasome.util.TestUtil.projectFromSnippet
-import static org.jasome.util.TestUtil.projectFromSnippetVarArgs
+import static org.jasome.util.TestUtil.projectFromSnippet
 
 class TreeNodeSpec extends Specification {
 
     def "correctly computes equals and hashcodes for objects using their parents"() {
 
         given:
-        def project = projectFromSnippetVarArgs('''
+        def project = projectFromSnippet('''
         package org.whatever.stuff1;
 
         class Thing1 {

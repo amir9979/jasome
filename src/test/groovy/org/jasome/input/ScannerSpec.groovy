@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 import static org.jasome.util.TestUtil.projectFromResources
 import static org.jasome.util.TestUtil.projectFromSnippet
-import static org.jasome.util.TestUtil.projectFromSnippetVarArgs
+import static org.jasome.util.TestUtil.projectFromSnippet
 
 class ScannerSpec extends Specification {
 

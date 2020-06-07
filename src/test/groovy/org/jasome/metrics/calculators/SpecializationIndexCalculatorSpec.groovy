@@ -6,7 +6,7 @@ import spock.lang.Specification
 
 import static org.jasome.util.Matchers.containsMetric
 import static org.jasome.util.TestUtil.projectFromSnippet
-import static org.jasome.util.TestUtil.projectFromSnippetVarArgs
+import static org.jasome.util.TestUtil.projectFromSnippet
 import static spock.util.matcher.HamcrestSupport.expect
 
 class SpecializationIndexCalculatorSpec extends Specification {
@@ -99,7 +99,7 @@ class SpecializationIndexCalculatorSpec extends Specification {
     def "calculate depth uses the correct class when classes have same name"() {
 
         given:
-        def project = projectFromSnippetVarArgs '''
+        def project = projectFromSnippet '''
         package org.whatever.stuff;
 
         interface I {
@@ -137,7 +137,7 @@ class SpecializationIndexCalculatorSpec extends Specification {
     def "calculate depth uses the correct class even if it's not the closest class when classes have same name"() {
 
         given:
-        def project = projectFromSnippetVarArgs '''
+        def project = projectFromSnippet '''
         package org.whatever.stuff;
 
         interface I {
