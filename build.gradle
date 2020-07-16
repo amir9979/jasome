@@ -52,12 +52,20 @@ buildscript {
     }
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.jasome.executive.CommandLineExecutive'
+    }
+}
 
 task fatJar(type: Jar) {
     from {
         configurations.compile.collect {
             it.isDirectory() ? it : zipTree(it)
         }
+    }
+   manifest {
+        attributes 'Main-Class': 'org.jasome.executive.CommandLineExecutive'
     }
     with jar
 }
